@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+img {
+  filter: drop-shadow(10px 10px 4px black)
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -14,7 +18,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: darkcyan;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,11 +26,17 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-shadow: 2px 2px 2px black;
 }
 
 .App-link {
   color: #61dafb;
 }
+
+button, input {
+  filter: drop-shadow(2px 2px 2px)
+}
+
 
 @keyframes App-logo-spin {
   from {
