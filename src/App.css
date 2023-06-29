@@ -29,8 +29,13 @@ img {
   text-shadow: 2px 2px 2px black;
 }
 
-.App-link {
+.App-link, a {
   color: #61dafb;
+  text-decoration-line: none;
+}
+
+a:hover {
+  color: #93e8ff
 }
 
 button, input {

@@ -2,6 +2,7 @@ import './App.css';
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 
+
 function App() {
   const CLIENT_ID = 'f5fcf014164242198559887c0cee6763'
   const REDIRECT_URI = 'http://localhost:3000'
@@ -92,6 +93,8 @@ function App() {
         <h3>Followers</h3>
         {artists?.followers?.total}
         <hr/>
+        <h2>Link To Artist Page</h2>
+        <h3><a href={artists.external_urls.spotify}>{artists.external_urls.spotify}</a></h3>
       </div>
       )
   }
@@ -109,7 +112,9 @@ function App() {
           <h2>Released (YEAR/MM/DD)</h2>
           <h3>{albums.release_date}</h3><hr/>
           <h2>Total Tracks</h2>
-          <h3>{albums.total_tracks}</h3>
+          <h3>{albums.total_tracks}</h3><hr/>
+          <h2>Link To Album</h2>
+          <h3><a href={albums.external_urls.spotify}>{albums.external_urls.spotify}</a></h3>
         </div>
       </div>
     )
@@ -130,13 +135,16 @@ function App() {
         <h1>Spotify React Project</h1>
         {!token ? 
         <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPOSNE_TYPE}`}>Login to Spotify</a>
-        : <button onClick={logout} style={{
+        : <div>
+          <button onClick={logout} style={{
           height: 50,
           width: 200,
           fontSize: 40,
-        }}>Logout</button>}
+        }}>Logout</button>
         <div style={{margin: 8}}/>
         <button onClick={clearSelection}>Clear Search</button>
+          </div>
+        }
         {token ? 
           <div>
             <form onSubmit = {searchArtists}>
